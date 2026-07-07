@@ -1,0 +1,14 @@
+gradio
+easyocr
+transformers
+torch
+torchvision
+opencv-python
+pillow
+matplotlib
+numpy
+roboflow
+sentencepiece
+agno
+openai
+python-dotenv

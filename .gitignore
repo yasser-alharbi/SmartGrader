@@ -1,0 +1,43 @@
+# Environment variables (secrets)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.bak
+test_detection.jpg
+roboflow_prediction.jpg
+
+# Model caches
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Gradio
+flagged/
