@@ -327,14 +327,6 @@ On the demo worksheet (2 questions), SmartGrader detected both questions and ans
 
 ---
 
-## 🔗 Links
-
-- 🎥 **Full Guide (Video):** _add link_
-- 📓 **Colab Notebook:** _add link_
-- 📑 **Slides:** _add link_
-
----
-
 ## 👥 Team
 
 - **Yasir Alharbi**
