@@ -1,9 +1,12 @@
-# 📚 SmartGrader — English Q&A Auto-Grader
+<p align="center">
+  <img src="assets/banner.png" alt="SmartGrader logo" width="770"/>
+</p>
 
-> Snap a photo of a worksheet with **printed questions** and **handwritten answers**, and SmartGrader will detect, read, match, grade, and visualize the results — end to end.
+<h1 align="center">📚 SmartGrader — English Q&A Auto-Grader</h1>
 
 <p align="center">
-  <img src="assets/banner.png" alt="SmartGrader banner" width="820"/>
+  Snap a photo of a worksheet with <b>printed questions</b> and <b>handwritten answers</b>,<br/>
+  and SmartGrader will detect, read, match, grade, and visualize the results — end to end.
 </p>
 
 <p align="center">
@@ -20,7 +23,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-- [Demo](#-demo)
+- [Result — Before & After](#-result--before--after)
 - [How It Works](#-how-it-works)
   - [1. Detection — YOLOv11 on Roboflow](#1-detection--yolov11-on-roboflow)
   - [2. OCR — EasyOCR vs TrOCR](#2-ocr--easyocr-vs-trocr)
@@ -34,6 +37,7 @@
 - [Usage](#-usage)
 - [Results](#-results)
 - [Limitations & Future Work](#-limitations--future-work)
+- [Links](#-links)
 - [Team](#-team)
 - [License](#-license)
 
@@ -61,19 +65,22 @@ flowchart LR
     H --> I[Gradio UI<br/>Score + Feedback + Report]
 ```
 
-<p align="center">
-  <img src="assets/pipeline.png" alt="SmartGrader pipeline" width="820"/>
-</p>
-
 ---
 
-## 🖥️ Demo
+## 🔄 Result — Before & After
 
-<p align="center">
-  <img src="assets/ui.png" alt="SmartGrader Gradio interface" width="860"/>
-</p>
+<table>
+<tr>
+<td width="50%" align="center"><b>📤 Before — student worksheet</b></td>
+<td width="50%" align="center"><b>📥 After — AI-graded result</b></td>
+</tr>
+<tr>
+<td align="center"><img src="assets/before.png" alt="Input worksheet" width="100%"/></td>
+<td align="center"><img src="assets/after.png" alt="Graded result" width="100%"/></td>
+</tr>
+</table>
 
-The app produces a comprehensive report with a letter grade, per-question scores, and short feedback for each answer.
+> SmartGrader detects the printed questions and handwritten answers, matches each Q to its A, then returns a letter grade, per-question scores, and short feedback.
 
 ---
 
@@ -101,10 +108,6 @@ A **YOLOv11 object detection** model (trained and hosted on **Roboflow**) locate
 |:---:|:---:|:---:|
 | 63.1% | 63.9% | 63.6% |
 
-<p align="center">
-  <img src="assets/detection-sample.png" alt="Detection sample" width="760"/>
-</p>
-
 ### 2. OCR — EasyOCR vs TrOCR
 
 Because the detector returns **word-level boxes**, each box is cropped and read by the OCR engine best suited to its class:
@@ -117,10 +120,6 @@ Because the detector returns **word-level boxes**, each box is cropped and read 
 | Role in SmartGrader | Reads printed questions | Reads handwritten answers |
 
 Each crop is padded and contrast-enhanced before OCR to improve accuracy on small regions.
-
-<p align="center">
-  <img src="assets/ocr-sample.png" alt="OCR sample" width="760"/>
-</p>
 
 ### 3. Text Sorting & Grouping
 
@@ -158,10 +157,6 @@ The agent returns strict JSON:
 
 A position-based fallback runs automatically if the LLM response can't be parsed.
 
-<p align="center">
-  <img src="assets/matching.png" alt="LLM matching" width="820"/>
-</p>
-
 ### 5. Answer Grading — GPT-4 Turbo + Agno
 
 A second **Agno + GPT-4 Turbo** agent grades each matched pair as a *kind, encouraging teacher*. Its scoring rubric is intentionally **lenient and concept-focused**:
@@ -171,10 +166,6 @@ A second **Agno + GPT-4 Turbo** agent grades each matched pair as a *kind, encou
 - Returns a `Score`, one encouraging `Feedback` sentence, and `Key_Points`.
 
 Per-question scores are aggregated into an overall percentage and a letter grade (**A–F**).
-
-<p align="center">
-  <img src="assets/grading.png" alt="Grading output" width="820"/>
-</p>
 
 ### 6. User Interface — Gradio
 
@@ -210,14 +201,10 @@ SmartGrader/
 ├── Final_CV_SmartGrader_Project.ipynb   # End-to-end pipeline (Colab-ready)
 ├── requirements.txt
 ├── .env.example                         # Template for API keys
-├── assets/                              # Images used in this README
-│   ├── banner.png
-│   ├── pipeline.png
-│   ├── detection-sample.png
-│   ├── ocr-sample.png
-│   ├── matching.png
-│   ├── grading.png
-│   └── ui.png
+├── assets/
+│   ├── logo.png
+│   ├── before.png
+│   └── after.png
 └── README.md
 ```
 
@@ -340,6 +327,13 @@ On the demo worksheet (2 questions), SmartGrader detected both questions and ans
 
 ---
 
+## 🔗 Links
+
+- 🎥 **Full Guide (Video):** _add link_
+- 📓 **Colab Notebook:** _add link_
+- 📑 **Slides:** _add link_
+
+---
 
 ## 👥 Team
 
